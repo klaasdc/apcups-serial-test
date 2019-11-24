@@ -639,70 +639,70 @@ class ApcComm(threading.Thread):
                     self.ups_state['ups_status'].append("InformationalAlert")
                     
                 status_chg_cause_raw = int.from_bytes(msg_data[10:12], byteorder='big', signed=False)
-                self.ups_state['status_chg_cause_raw'] = status_chg_cause_raw
+                self.ups_status['status_chg_cause_raw'] = status_chg_cause_raw
                 #These are documented in the APC Modbus documentation
                 if status_chg_cause_raw == 0:
-                    self.ups_state['status_chg_cause'] = "SystemInitialization"
+                    self.ups_status['status_chg_cause'] = "SystemInitialization"
                 if status_chg_cause_raw == 1:
-                    self.ups_state['status_chg_cause'] = "HighInputVoltage"
+                    self.ups_status['status_chg_cause'] = "HighInputVoltage"
                 if status_chg_cause_raw == 2:
-                    self.ups_state['status_chg_cause'] = "LowInputVoltage"
+                    self.ups_status['status_chg_cause'] = "LowInputVoltage"
                 if status_chg_cause_raw == 3:
-                    self.ups_state['status_chg_cause'] = "DistortedInput"
+                    self.ups_status['status_chg_cause'] = "DistortedInput"
                 if status_chg_cause_raw == 4:
-                    self.ups_state['status_chg_cause'] = "RapidChangeOfInputVoltage"
+                    self.ups_status['status_chg_cause'] = "RapidChangeOfInputVoltage"
                 if status_chg_cause_raw == 5:
-                    self.ups_state['status_chg_cause'] = "HighInputFrequency"
+                    self.ups_status['status_chg_cause'] = "HighInputFrequency"
                 if status_chg_cause_raw == 6:
-                    self.ups_state['status_chg_cause'] = "LowInputFrequency"
+                    self.ups_status['status_chg_cause'] = "LowInputFrequency"
                 if status_chg_cause_raw == 7:
-                    self.ups_state['status_chg_cause'] = "FreqAndOrPhaseDifference"
+                    self.ups_status['status_chg_cause'] = "FreqAndOrPhaseDifference"
                 if status_chg_cause_raw == 8:
-                    self.ups_state['status_chg_cause'] = "AcceptableInput"
+                    self.ups_status['status_chg_cause'] = "AcceptableInput"
                 if status_chg_cause_raw == 9:
-                    self.ups_state['status_chg_cause'] = "AutomaticTest"
+                    self.ups_status['status_chg_cause'] = "AutomaticTest"
                 if status_chg_cause_raw == 10:
-                    self.ups_state['status_chg_cause'] = "TestEnded"
+                    self.ups_status['status_chg_cause'] = "TestEnded"
                 if status_chg_cause_raw == 11:
-                    self.ups_state['status_chg_cause'] = "LocalUICommand"
+                    self.ups_status['status_chg_cause'] = "LocalUICommand"
                 if status_chg_cause_raw == 12:
-                    self.ups_state['status_chg_cause'] = "ProtocolCommand"
+                    self.ups_status['status_chg_cause'] = "ProtocolCommand"
                 if status_chg_cause_raw == 13:
-                    self.ups_state['status_chg_cause'] = "LowBatteryVoltage"
+                    self.ups_status['status_chg_cause'] = "LowBatteryVoltage"
                 if status_chg_cause_raw == 14:
-                    self.ups_state['status_chg_cause'] = "GeneralError"
+                    self.ups_status['status_chg_cause'] = "GeneralError"
                 if status_chg_cause_raw == 15:
-                    self.ups_state['status_chg_cause'] = "PowerSystemError"
+                    self.ups_status['status_chg_cause'] = "PowerSystemError"
                 if status_chg_cause_raw == 16:
-                    self.ups_state['status_chg_cause'] = "BatterySystemError"
+                    self.ups_status['status_chg_cause'] = "BatterySystemError"
                 if status_chg_cause_raw == 17:
-                    self.ups_state['status_chg_cause'] = "ErrorCleared"
+                    self.ups_status['status_chg_cause'] = "ErrorCleared"
                 if status_chg_cause_raw == 18:
-                    self.ups_state['status_chg_cause'] = "AutomaticRestart"
+                    self.ups_status['status_chg_cause'] = "AutomaticRestart"
                 if status_chg_cause_raw == 19:
-                    self.ups_state['status_chg_cause'] = "DistortedInverterOutput"
+                    self.ups_status['status_chg_cause'] = "DistortedInverterOutput"
                 if status_chg_cause_raw == 20:
-                    self.ups_state['status_chg_cause'] = "InverterOutputAcceptable"
+                    self.ups_status['status_chg_cause'] = "InverterOutputAcceptable"
                 if status_chg_cause_raw == 21:
-                    self.ups_state['status_chg_cause'] = "EPOInterface"
+                    self.ups_status['status_chg_cause'] = "EPOInterface"
                 if status_chg_cause_raw == 22:
-                    self.ups_state['status_chg_cause'] = "InputPhaseDeltaOutOfRange"
+                    self.ups_status['status_chg_cause'] = "InputPhaseDeltaOutOfRange"
                 if status_chg_cause_raw == 23:
-                    self.ups_state['status_chg_cause'] = "InputNeutralNotConnected"
+                    self.ups_status['status_chg_cause'] = "InputNeutralNotConnected"
                 if status_chg_cause_raw == 24:
-                    self.ups_state['status_chg_cause'] = "ATSTransfer"
+                    self.ups_status['status_chg_cause'] = "ATSTransfer"
                 if status_chg_cause_raw == 25:
-                    self.ups_state['status_chg_cause'] = "ConfigurationChange"
+                    self.ups_status['status_chg_cause'] = "ConfigurationChange"
                 if status_chg_cause_raw == 26:
-                    self.ups_state['status_chg_cause'] = "AlertAsserted"
+                    self.ups_status['status_chg_cause'] = "AlertAsserted"
                 if status_chg_cause_raw == 27:
-                    self.ups_state['status_chg_cause'] = "AlertCleared"
+                    self.ups_status['status_chg_cause'] = "AlertCleared"
                 if status_chg_cause_raw == 28:
-                    self.ups_state['status_chg_cause'] = "PlugRatingExceeded"
+                    self.ups_status['status_chg_cause'] = "PlugRatingExceeded"
                 if status_chg_cause_raw == 29:
-                    self.ups_state['status_chg_cause'] = "OutletGroupStateChange"
+                    self.ups_status['status_chg_cause'] = "OutletGroupStateChange"
                 if status_chg_cause_raw == 30:
-                    self.ups_state['status_chg_cause'] = "FailureBypassExpired"
+                    self.ups_status['status_chg_cause'] = "FailureBypassExpired"
                 
                     
             elif msg_id == 0x79:
@@ -960,13 +960,8 @@ class ApcCLI(Cmd):
             print("Error sending")
 
 if __name__ == '__main__':
-
-    if len(sys.argv) != 2:
-        print("APC UPS Serial test program\n2019 KlaasDC\n\nUsage: " + sys.argv[0] + " <serial port>\nExample: " + sys.argv[0] + " /dev/ttyS0")
-        sys.exit(0)
-    
-    ser = serial.Serial(sys.argv[1], 9600, timeout=APC_RCV_TIMEOUT, parity=serial.PARITY_NONE)
-    print("Starting on " + ser.name)
+    ser = serial.Serial('COM5', 9600, timeout=APC_RCV_TIMEOUT, parity=serial.PARITY_NONE)
+    print(ser.name)
     
     apccomm = ApcComm(serial_port=ser)
     apccomm.start()    
