@@ -22,12 +22,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 @author: klaasdc
 '''
+import sys
 import threading
 import time
 from enum import Enum, auto
 from checksum.fletcherNbit import Fletcher
 import serial
-import math
 import datetime
 
 APC_RCV_TIMEOUT = 0.25

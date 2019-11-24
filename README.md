@@ -5,7 +5,7 @@ This is a test application to communicate with an APC SMC1000i UPS over the seri
 The protocol (Microlink) does not seem to be documented, but references to some parameters and fields can be found in various APC datasheets/manuals.
 For more details on the development, visit https://sites.google.com/site/klaasdc/apc-smartups-decode
 
-The code is written for Python 3, and uses pyserial to interface with an USB-to-serial adapter. The only dependecy is the pyserial library
+The code is written for Python 3, and uses pyserial to interface with an USB-to-serial adapter. The only dependecy is the pyserial library.
 
 Running the program
 -------------------
@@ -32,5 +32,5 @@ Troubleshooting
 ---------------
 If you get a Permission Denied error on opening the serial port, you might need to add your user to the dialout group.
 ```
-usermod -a -G dialout YOUR_USER_NAME
+sudo usermod -a -G dialout YOUR_USER_NAME
 ```
