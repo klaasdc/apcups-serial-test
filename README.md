@@ -21,7 +21,7 @@ python3 apcups-serial-test.py /dev/ttyS0
 When running the program, a simple CLI is started.
 Type 'commstate' to see the actual state.
 - INIT or INIT_RESET means the communication is not yet established
-- MODE0 means that the UPS is sending its looping over its message IDs for the first time
+- MODE0 means that the UPS is looping over its message IDs for the first time
 - MODE1 means that the UPS is now sending status updates continuously
 
 Type 'all' to get all the known parameters from the internal state dictionary.
