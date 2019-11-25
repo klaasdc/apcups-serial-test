@@ -55,7 +55,6 @@ class ApcComm(threading.Thread):
         self.state = CommState.INIT
         self.prev_state = CommState.INIT
         self.next_apc_msg = APC_CMD_NEXT#Next message to be sent to the UPS, for internal use
-        self.next_apc_msg_ext = None#Requested message to be sent
         self.running = True
         self.daemon = True
         
@@ -68,8 +67,8 @@ class ApcComm(threading.Thread):
         '''
         if self.state is not CommState.MODE1:
             return False
-        self.next_apc_msg_ext = raw_msg
-        while self.next_apc_msg_ext is not None:
+        self.next_apc_msg = raw_msg
+        while self.next_apc_msg is not APC_CMD_NEXT:
             time.sleep(APC_RCV_TIMEOUT)
         return True
     
@@ -114,12 +113,11 @@ class ApcComm(threading.Thread):
                 '''
                 Normal communication flow with UPS according to MODE1
                 '''
-                if self.next_apc_msg_ext is not None:
-                    self.s.write(self.next_apc_msg_ext)
-                    self.next_apc_msg_ext = None
-                else:
-                    self.s.write(self.next_apc_msg)
+                self.s.write(self.next_apc_msg)
                 rcv_data = self.receive_msg()
+                
+                if self.next_apc_msg is not None:
+                    self.next_apc_msg = APC_CMD_NEXT
                 
                 if not self.handle_apc_msg(rcv_data):
                     self.state = CommState.INIT
